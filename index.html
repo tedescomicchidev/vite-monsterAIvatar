@@ -2,12 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/assets/shoes/volt-cleats.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vite-monsteraivatar</title>
+    <title>Monster AIvatar Locker</title>
   </head>
   <body>
-    <div id="app"></div>
+    <main id="app" class="app-shell">
+      <div class="container py-5">
+        <div class="row g-5 align-items-start">
+          <div class="col-lg-6">
+            <section class="avatar-panel" aria-label="Avatar preview">
+              <p class="eyebrow text-uppercase mb-2">Live preview</p>
+              <h1 class="display-5 fw-semibold text-light mb-3">Monster AIvatar Locker</h1>
+              <p class="text-light opacity-75 mb-4">
+                Layer kits, shorts, and cleats to create a look worthy of the arena.
+              </p>
+              <div class="avatar-stage" aria-live="polite">
+                <img src="/assets/base/body.png" alt="Base avatar" class="avatar-layer" data-avatar-base data-visible="true" />
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Selected shirt" class="avatar-layer" data-avatar-shirt data-visible="false" />
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Selected shorts" class="avatar-layer" data-avatar-shorts data-visible="false" />
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Selected shoes" class="avatar-layer" data-avatar-shoes data-visible="false" />
+              </div>
+            </section>
+          </div>
+          <div class="col-lg-6">
+            <section class="controls-panel" aria-label="Outfit controls">
+              <p class="eyebrow text-uppercase mb-2">Customize kit</p>
+              <h2 class="h3 fw-semibold text-white mb-4">Dial in every layer</h2>
+              <form class="outfit-form" autocomplete="off" data-outfit-form>
+                <div class="mb-4">
+                  <label for="shirtSelect" class="form-label">Shirt</label>
+                  <select id="shirtSelect" class="form-select form-select-lg" data-select="shirts"></select>
+                </div>
+                <div class="mb-4">
+                  <label for="shortsSelect" class="form-label">Shorts</label>
+                  <select id="shortsSelect" class="form-select form-select-lg" data-select="shorts"></select>
+                </div>
+                <div class="mb-4">
+                  <label for="shoesSelect" class="form-label">Shoes</label>
+                  <select id="shoesSelect" class="form-select form-select-lg" data-select="shoes"></select>
+                </div>
+                <div class="status-line" role="status" aria-live="polite" data-status>
+                  Choose a kit combination to see it on the pitch-ready avatar.
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
