@@ -1,0 +1,15 @@
+{
+  "shirts": [
+    { "id": "shirt-crimson", "name": "Crimson Jersey", "image": "/assets/shirts/crimson-jersey.png" },
+    { "id": "shirt-aqua", "name": "Aqua Training Top", "image": "/assets/shirts/aqua-training-top.png" },
+    { "id": "shirt-sunset", "name": "Sunset Kit", "image": "/assets/shirts/sunset-kit.png" }
+  ],
+  "shorts": [
+    { "id": "shorts-midnight", "name": "Midnight Shorts", "image": "/assets/shorts/midnight-shorts.png" },
+    { "id": "shorts-cloud", "name": "Cloud Shorts", "image": "/assets/shorts/cloud-shorts.png" }
+  ],
+  "shoes": [
+    { "id": "shoes-neo", "name": "Neo Boots", "image": "/assets/shoes/neo-boots.png" },
+    { "id": "shoes-volt", "name": "Volt Cleats", "image": "/assets/shoes/volt-cleats.png" }
+  ]
+}
