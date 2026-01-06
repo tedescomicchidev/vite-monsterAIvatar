@@ -1,0 +1,82 @@
+{
+  "hair": [
+    {
+      "id": "hair-sunset-brown",
+      "name": "Sunset Brown",
+      "image": "/assets/hair/hair-sunset-brown.png"
+    },
+    {
+      "id": "hair-midnight-black",
+      "name": "Midnight Black",
+      "image": "/assets/hair/hair-midnight-black.png"
+    },
+    {
+      "id": "hair-golden-blonde",
+      "name": "Golden Blonde",
+      "image": "/assets/hair/hair-golden-blonde.png"
+    }
+  ],
+  "shirts": [
+    {
+      "id": "shirt-crimson",
+      "name": "Crimson Home",
+      "image": "/assets/shirts/shirt-crimson.png"
+    },
+    {
+      "id": "shirt-ocean",
+      "name": "Ocean Away",
+      "image": "/assets/shirts/shirt-ocean.png"
+    },
+    {
+      "id": "shirt-graphite",
+      "name": "Graphite Training",
+      "image": "/assets/shirts/shirt-graphite.png"
+    }
+  ],
+  "pants": [
+    {
+      "id": "pants-forest",
+      "name": "Forest Shorts",
+      "image": "/assets/pants/pants-forest.png"
+    },
+    {
+      "id": "pants-navy",
+      "name": "Navy Shorts",
+      "image": "/assets/pants/pants-navy.png"
+    },
+    {
+      "id": "pants-charcoal",
+      "name": "Charcoal Shorts",
+      "image": "/assets/pants/pants-charcoal.png"
+    }
+  ],
+  "shoes": [
+    {
+      "id": "shoes-obsidian",
+      "name": "Obsidian Cleats",
+      "image": "/assets/shoes/shoes-obsidian.png"
+    },
+    {
+      "id": "shoes-ice",
+      "name": "Ice Cleats",
+      "image": "/assets/shoes/shoes-ice.png"
+    },
+    {
+      "id": "shoes-volt",
+      "name": "Volt Cleats",
+      "image": "/assets/shoes/shoes-volt.png"
+    }
+  ],
+  "captainBand": {
+    "id": "captain-band",
+    "name": "Captain's Band",
+    "image": "/assets/extras/captain-band.png"
+  },
+  "defaults": {
+    "hair": "hair-sunset-brown",
+    "shirts": "shirt-crimson",
+    "pants": "pants-forest",
+    "shoes": "shoes-obsidian",
+    "captainBand": false
+  }
+}

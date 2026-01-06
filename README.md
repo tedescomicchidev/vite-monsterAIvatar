@@ -1,56 +1,64 @@
-Create a GitHub Copilot custom instructions file for this repository.
+## Avatar Outfit Configurator
 
-Output: a single Markdown file at `.github/copilot-instructions.md`.
+A vanilla JavaScript experience that lets supporters recolor a layered soccer avatar. The build targets Azure Static Web Apps, relies on Bootstrap for layout, and keeps all data/images in `public/` so the app remains static-only.
 
-Project context:
+### Features
 
-* Goal: a simple “avatar outfit configurator” web app.
-* Hosting: Azure Static Web Apps (static hosting only; no backend).
-* Frontend tooling: Vite build (output `dist/`), vanilla JavaScript (no framework), Bootstrap for layout/components, plus custom CSS.
-* Data: static JSON files stored under `public/data/` (e.g., `public/data/outfits.json`) that define dropdown options (shirts, shorts, shoes, etc.). The app loads JSON via `fetch('/data/...')`.
-* Assets: avatar layers are images under `public/assets/` (e.g., shirts/shoes layers). The UI updates the avatar by swapping image sources or toggling CSS classes.
+- Bootstrap split layout with the avatar on the left and outfit controls on the right.
+- Layered PNG stack for hair, shirt, pants, shoes, plus an optional captain band.
+- JSON-driven dropdowns so kit options can be updated without touching JavaScript.
+- Live status text describing the current selection to improve accessibility.
 
-What the instructions file must contain:
+### Getting Started
 
-1. Coding style & conventions
+```bash
+npm install
+npm run dev     # local dev server with HMR
+npm run build   # production build to dist/
+npm run preview # preview the production bundle
+npm run test    # Vitest unit tests
+```
 
-* Prefer small, readable functions; avoid “clever” code.
-* Use modern ES modules (`import/export`) in `src/`.
-* Keep logic in `src/` and static files in `public/`.
-* Use Bootstrap utility classes first; only add custom CSS when needed.
-* Use semantic HTML and accessibility basics (labels for selects, alt text, keyboard-friendly controls).
+### Outfit Data
 
-2. Architecture rules
+Options live in `public/data/outfits.json` and follow this shape:
 
-* Single-page app (one page). No router unless requested.
-* Treat JSON as source of truth for dropdowns; do not hardcode options in JS.
-* Centralize state in a plain JS object; update UI from state in a predictable way.
-* Provide a clear separation between:
+```json
+{
+  "hair": [{ "id": "hair-id", "name": "Display Name", "image": "/assets/hair/hair-id.png" }],
+  "shirts": [{ "id": "shirt-id", "name": "Kit", "image": "/assets/shirts/shirt-id.png" }],
+  "pants": [{ "id": "pants-id", "name": "Shorts", "image": "/assets/pants/pants-id.png" }],
+  "shoes": [{ "id": "shoes-id", "name": "Cleats", "image": "/assets/shoes/shoes-id.png" }],
+  "captainBand": { "id": "captain-band", "name": "Captain Band", "image": "/assets/extras/captain-band.png" },
+  "defaults": {
+    "hair": "hair-id",
+    "shirts": "shirt-id",
+    "pants": "pants-id",
+    "shoes": "shoes-id",
+    "captainBand": false
+  }
+}
+```
 
-  * data loading (fetch + validation),
-  * state updates,
-  * rendering (DOM updates),
-  * event wiring.
+Every option must declare `id`, `name`, and `image`. To add more looks, drop PNG layers into `public/assets/<category>/` and reference them from the JSON. Placeholder art can be regenerated with `python3 scripts/generate_assets.py`.
 
-3. Data and validation
+### Architecture Notes
 
-* Define expected JSON schema (high level) and validate required fields at runtime with simple checks (no heavy libs).
-* Fail gracefully: show a user-friendly message if JSON fails to load.
+- `src/main.js` handles fetching JSON, managing state, rendering images, and wiring events.
+- `src/outfitData.js` validates the JSON payload so the UI can show a friendly error if anything is missing.
+- The UI updates DOM only through state changes—dropdown events mutate a single `state` object and trigger rerenders.
 
-4. Testing & quality
+### Testing
 
-* If tests are requested, default to lightweight tests (e.g., Vitest) but do not add dependencies unless asked.
-* Prefer console-friendly debug logs behind a `DEBUG` flag.
+Vitest covers the data-normalization helpers. Run `npm run test` to make sure schema changes or new categories keep passing validation.
 
-5. Azure Static Web Apps guidance
+### Accessibility & Responsiveness
 
-* Assume deploy config uses Vite build to `dist/`.
-* If SPA routing is ever added, mention `staticwebapp.config.json` and navigation fallback.
-* Keep everything static and client-side.
+- Every control has a `<label>` and is reachable via keyboard.
+- Live region text mirrors the current kit for screen reader users.
+- The layout collapses to a stacked column on mobile while keeping avatar proportions intact.
 
-6. Output format
+### Deployment
 
-* Write the instructions as clear bullet points and short sections with headings.
-* Include “When responding to requests…” guidance for Copilot: e.g., always ask where files should go, default to providing diffs/snippets, keep changes minimal, and explain assumptions.
-
-Do NOT include any secrets, tokens, or environment-specific credentials.
+- Build with `npm run build`; Azure Static Web Apps should deploy the `dist/` folder.
+- No routing is required today. If a SPA router is introduced later, add a `staticwebapp.config.json` navigation fallback.

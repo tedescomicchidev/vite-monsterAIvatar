@@ -6,8 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vite-monsteraivatar</title>
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <body class="bg-body">
+      <main class="py-5">
+        <div class="container" id="app">
+          <div class="row g-5 align-items-start">
+            <div class="col-12 col-lg-6">
+              <section class="avatar-panel p-4 p-lg-5 rounded-4 shadow-sm">
+                <p class="text-uppercase text-muted fw-semibold small mb-2">Club avatar</p>
+                <h1 class="display-6 mb-4">Design the match kit</h1>
+                <div class="avatar-stage rounded-4">
+                  <img src="/assets/base/player-base.png" alt="Base soccer player silhouette" class="avatar-layer" data-layer="base" />
+                  <img src="" alt="Hair layer" class="avatar-layer" data-layer="hair" />
+                  <img src="" alt="Shirt layer" class="avatar-layer" data-layer="shirts" />
+                  <img src="" alt="Pants layer" class="avatar-layer" data-layer="pants" />
+                  <img src="" alt="Shoes layer" class="avatar-layer" data-layer="shoes" />
+                  <img src="" alt="Captain band" class="avatar-layer" data-layer="captain" aria-hidden="true" />
+                </div>
+              </section>
+            </div>
+            <div class="col-12 col-lg-6">
+              <section class="card border-0 shadow-sm">
+                <div class="card-body p-4 p-lg-5">
+                  <p class="text-uppercase text-muted fw-semibold small mb-2">Outfit controls</p>
+                  <h2 class="h3 mb-4">Choose each layer</h2>
+                  <div class="alert alert-danger d-none" role="alert" data-error></div>
+                  <div class="alert alert-info d-flex align-items-center gap-2" data-loading>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    <span>Loading outfit options...</span>
+                  </div>
+                  <form class="avatar-form" novalidate>
+                    <div class="row g-4">
+                      <div class="col-12">
+                        <label class="form-label" for="hairSelect">Hair color</label>
+                        <select class="form-select" id="hairSelect" data-select="hair" disabled>
+                          <option>Loading...</option>
+                        </select>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label" for="shirtSelect">Shirt color</label>
+                        <select class="form-select" id="shirtSelect" data-select="shirts" disabled>
+                          <option>Loading...</option>
+                        </select>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label" for="pantsSelect">Pants color</label>
+                        <select class="form-select" id="pantsSelect" data-select="pants" disabled>
+                          <option>Loading...</option>
+                        </select>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label" for="shoeSelect">Shoe color</label>
+                        <select class="form-select" id="shoeSelect" data-select="shoes" disabled>
+                          <option>Loading...</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-check form-switch mt-4">
+                      <input class="form-check-input" type="checkbox" role="switch" id="captainToggle" data-captain-toggle disabled />
+                      <label class="form-check-label" for="captainToggle">Add captain band (right arm)</label>
+                    </div>
+                    <p class="text-muted small mt-4" data-status aria-live="polite"></p>
+                  </form>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </main>
+      <script type="module" src="/src/main.js"></script>
+    </body>
 </html>
