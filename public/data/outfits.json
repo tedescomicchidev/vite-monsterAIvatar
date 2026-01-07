@@ -1,0 +1,51 @@
+{
+  "palettes": [
+    {
+      "id": "iberian-crimson",
+      "label": "Iberian Crimson",
+      "primary": "#b31312",
+      "description": "Classic home strip with deep red fabric and subtle shadowing."
+    },
+    {
+      "id": "atlantic-teal",
+      "label": "Atlantic Teal",
+      "primary": "#0f8b8d",
+      "description": "Sea-drenched teal with cool highlights inspired by coastal sunsets."
+    },
+    {
+      "id": "sunset-coral",
+      "label": "Sunset Coral",
+      "primary": "#ff6f5e",
+      "description": "Retro coral shade balanced with soft sky-tinted accents."
+    },
+    {
+      "id": "midnight-ink",
+      "label": "Midnight Ink",
+      "primary": "#1b2d4f",
+      "description": "Low-light away colors with moody indigo undertones."
+    }
+  ],
+  "backgrounds": [
+    {
+      "id": "match-night",
+      "label": "Match Night",
+      "from": "#0b1c2c",
+      "to": "#163b65",
+      "description": "Cool stadium floodlights fading into midnight sky."
+    },
+    {
+      "id": "training-dawn",
+      "label": "Training Dawn",
+      "from": "#ff9f4a",
+      "to": "#ff3c83",
+      "description": "Warm sunrise gradient for pre-match prep vibes."
+    },
+    {
+      "id": "electric-pitch",
+      "label": "Electric Pitch",
+      "from": "#0b3d1d",
+      "to": "#0fa47a",
+      "description": "Neon turf glow that frames the player silhouette."
+    }
+  ]
+}
